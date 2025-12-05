@@ -527,3 +527,4 @@
 /Users/basirazaki/Downloads/good/bin/Debug/net9.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/basirazaki/Downloads/good/bin/Debug/net9.0/runtimes/win/lib/net9.0/System.Text.Encodings.Web.dll
 /Users/basirazaki/Downloads/good/obj/Debug/net9.0/compressed/4ea3rq2v4j-noxkfjva4x.gz
+/Users/basirazaki/Downloads/good/obj/Debug/net9.0/COMP 2139 Assignment 1.sourcelink.json

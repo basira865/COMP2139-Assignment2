@@ -10,6 +10,21 @@
     <p class="lead">Discover unforgettable experiences — from jazz nights to tech expos.</p>
     <a class="btn btn-primary btn-lg" asp-controller="Events" asp-action="Index">Browse All Events</a>
 </section>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle-fill"></i> @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i> @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
 
 @if (Model != null && Model.EventList != null && Model.EventList.Any())
 {

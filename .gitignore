@@ -1,0 +1,13 @@
+## Ignore build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+logs/
+*.log
+appsettings.Development.json
+wwwroot/uploads/
+node_modules/

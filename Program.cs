@@ -89,7 +89,7 @@ try
     if (!app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Home/Error"); // Handles 500 errors
-        app.UseStatusCodePagesWithReExecute("/Home/StatusCode", "?code={0}"); // Handles 404
+        app.UseStatusCodePagesWithReExecute("/Home/StatusCode?code={0}");// Handles 404
         app.UseHsts();
     }
     else

@@ -14,15 +14,18 @@ namespace COMP2139_Assignment1_1.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
+        private readonly ILogger<AccountController> _logger;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _logger = logger;
         }
 
         // GET: /Account/Register
@@ -54,6 +57,9 @@ namespace COMP2139_Assignment1_1.Controllers
                 // Assign role
                 var role = model.IsOrganizer ? "Organizer" : "Attendee";
                 await _userManager.AddToRoleAsync(user, role);
+                
+                // ✅ Log registration
+                _logger.LogInformation("New user registered: {Email} as {Role}", model.Email, role);
 
                 // Generate email confirmation token
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -69,6 +75,9 @@ namespace COMP2139_Assignment1_1.Controllers
                     model.Email,
                     "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(confirmUrl)}'>clicking here</a>.");
+
+                // ✅ Add success message for registration confirmation page
+                TempData["SuccessMessage"] = "Registration successful! Please check your email to confirm your account.";
 
                 return RedirectToAction(nameof(RegisterConfirmation));
             }
@@ -104,6 +113,9 @@ namespace COMP2139_Assignment1_1.Controllers
 
             if (result.Succeeded)
             {
+                // ✅ Log email confirmation
+                _logger.LogInformation("Email confirmed for user: {Email}", user.Email);
+                
                 TempData["SuccessMessage"] = "Email confirmed! You can now log in.";
                 return RedirectToAction(nameof(Login));
             }
@@ -137,9 +149,17 @@ namespace COMP2139_Assignment1_1.Controllers
 
             if (result.Succeeded)
             {
+                // ✅ Log successful login
+                _logger.LogInformation("User {Email} logged in successfully from IP {IP}", 
+                    model.Email, 
+                    HttpContext.Connection.RemoteIpAddress);
+
+                // ✅ Add welcome message
+                TempData["SuccessMessage"] = $"Welcome back, {model.Email}!";
+
                 if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     return Redirect(returnUrl);
-                
+        
                 return RedirectToAction("Index", "Dashboard");
             }
 
@@ -150,9 +170,19 @@ namespace COMP2139_Assignment1_1.Controllers
 
             if (result.IsLockedOut)
             {
+                // ✅ Log account lockout
+                _logger.LogWarning("User {Email} account locked out from IP {IP}", 
+                    model.Email, 
+                    HttpContext.Connection.RemoteIpAddress);
+
                 ModelState.AddModelError(string.Empty, "Account locked due to multiple failed login attempts.");
                 return View(model);
             }
+
+            // ✅ Log failed login
+            _logger.LogWarning("Failed login attempt for {Email} from IP {IP}", 
+                model.Email, 
+                HttpContext.Connection.RemoteIpAddress);
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             return View(model);
@@ -171,14 +201,28 @@ namespace COMP2139_Assignment1_1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
+            var userEmail = User.Identity?.Name ?? "Unknown";
+    
             await _signInManager.SignOutAsync();
+    
+            // ✅ Log logout
+            _logger.LogInformation("User {Email} logged out", userEmail);
+    
+            // ✅ Add logout success message
+            TempData["SuccessMessage"] = "You have been logged out successfully.";
+    
             return RedirectToAction("Index", "Home");
         }
 
         // GET: /Account/AccessDenied
         [HttpGet]
-        public IActionResult AccessDenied()
+        public IActionResult AccessDenied(string returnUrl = null)
         {
+            // ✅ Log access denied
+            _logger.LogWarning("Access denied for user {User}. Attempted URL: {ReturnUrl}", 
+                User.Identity?.Name ?? "Anonymous", 
+                returnUrl ?? "Unknown");
+    
             return View();
         }
 
@@ -220,6 +264,9 @@ namespace COMP2139_Assignment1_1.Controllers
                 email,
                 "Reset Password",
                 $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+            // ✅ Log password reset request
+            _logger.LogInformation("Password reset requested for user: {Email}", email);
 
             return RedirectToAction(nameof(ForgotPasswordConfirmation));
         }
@@ -263,6 +310,11 @@ namespace COMP2139_Assignment1_1.Controllers
 
             if (result.Succeeded)
             {
+                // ✅ Log password reset success
+                _logger.LogInformation("Password successfully reset for user: {Email}", email);
+                
+                TempData["SuccessMessage"] = "Password reset successful! You can now log in.";
+                
                 return RedirectToAction(nameof(ResetPasswordConfirmation));
             }
 
@@ -282,3 +334,4 @@ namespace COMP2139_Assignment1_1.Controllers
         }
     }
 }
+

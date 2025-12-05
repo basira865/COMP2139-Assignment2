@@ -114,7 +114,7 @@ namespace COMP2139_Assignment1_1.Controllers
             
             // ✅ PART 3.3: Trigger modal
             TempData["PurchaseId"] = purchase.PurchaseId;
-            TempData["TotalCost"] = purchase.TotalCost;
+            TempData["TotalCost"] = purchase.TotalCost.ToString("F2"); // ✅ Convert to string
             TempData["ShowConfirmationModal"] = true;
 
             TempData["SuccessMessage"] = "Purchase completed successfully!";
@@ -136,8 +136,9 @@ namespace COMP2139_Assignment1_1.Controllers
             // ✅ PART 3.3: Pass modal data
             ViewBag.ShowConfirmationModal = TempData["ShowConfirmationModal"] as bool? ?? false;
             ViewBag.PurchaseId = TempData["PurchaseId"];
-            ViewBag.TotalCost = TempData["TotalCost"];
-
+            ViewBag.TotalCost = TempData["TotalCost"] != null 
+                ? decimal.Parse(TempData["TotalCost"].ToString()) 
+                : 0m;
             return View(purchase);
         }
 
