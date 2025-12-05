@@ -1,0 +1,62 @@
+@model IEnumerable<COMP2139_Assignment1_1.Models.Event>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Available Tickets</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Category?.Name</td>
+                <td>@item.DateTime.ToString("yyyy-MM-dd")</td>
+                <td>$@item.TicketPrice</td>
+                <td>
+                    @if (item.AvailableTickets <= 0)
+                    {
+                        <span class="badge bg-secondary">Sold Out</span>
+                    }
+                    else if (item.AvailableTickets <= 7)
+                    {
+                        <span class="badge bg-warning text-dark">
+            <i class="bi bi-exclamation-triangle-fill"></i> Only @item.AvailableTickets left!
+        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">@item.AvailableTickets available</span>
+                    }
+                </td>
+                <td>
+                    <a asp-controller="Events" asp-action="Edit" asp-route-id="@item.EventId">Edit</a> |
+                    <a asp-controller="Events" asp-action="Details" asp-route-id="@item.EventId">Details</a> |
+                    <a asp-controller="Events" asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
+
+                    @if (item.AvailableTickets > 0)
+                    {
+                        <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.EventId" class="btn btn-sm btn-success ms-2">Buy</a>
+                    }
+                    else
+                    {
+                        <span class="text-muted ms-2">Sold Out</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">No events found.</p>
+}

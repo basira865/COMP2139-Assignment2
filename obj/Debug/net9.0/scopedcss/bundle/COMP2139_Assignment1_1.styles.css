@@ -1,0 +1,46 @@
+/* _content/COMP2139_Assignment1_1/Views/Shared/_Layout.cshtml.rz.scp.css */
+a.navbar-brand[b-pdmk2vwfsc] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+}
+
+a[b-pdmk2vwfsc] {
+  color: #0077cc;
+}
+
+.btn-primary[b-pdmk2vwfsc] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-pdmk2vwfsc],
+.nav-pills .show > .nav-link[b-pdmk2vwfsc] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-pdmk2vwfsc] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-pdmk2vwfsc] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-pdmk2vwfsc] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-pdmk2vwfsc] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-pdmk2vwfsc] {
+  width: 100%;
+  white-space: nowrap;
+  background-color: #212529;
+  margin-top: auto;
+}

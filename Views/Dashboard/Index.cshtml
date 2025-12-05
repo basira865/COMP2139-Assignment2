@@ -1,0 +1,256 @@
+@{
+    ViewData["Title"] = "Registration Confirmation";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-success">
+                <h4>✅ Registration Successful!</h4>
+                <p>A confirmation email has been sent to your email address.</p>
+                <p>Please check your email (and spam folder) and click the confirmation link to activate your account.</p>
+                <p class="mb-0"><strong>Note:</strong> For demo purposes, check the console/logs for the confirmation link.</p>
+            </div>
+            <a asp-action="Login" class="btn btn-primary">Go to Login</a>
+        </div>
+    </div>
+</div>
+```
+
+### `Views/Dashboard/Index.cshtml`:
+```html
+@model COMP2139_Assignment1_1.Models.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "My Dashboard";
+}
+
+<div class="container my-5">
+    <h1 class="mb-4">🎫 My Dashboard</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Section 1: My Upcoming Tickets -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">🎟️ My Upcoming Events</h3>
+        </div>
+        <div class="card-body">
+            @if (Model.MyTickets.Any())
+            {
+                <div class="row">
+                    @foreach (var purchase in Model.MyTickets)
+                    {
+                        @foreach (var pe in purchase.PurchaseEvents)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@pe.Event.Title</h5>
+                                        <p class="card-text">
+                                            <strong>Date:</strong> @pe.Event.DateTime.ToString("MMM dd, yyyy hh:mm tt")<br>
+                                            <strong>Category:</strong> @pe.Event.Category?.Name<br>
+                                            <strong>Tickets:</strong> @pe.Quantity
+                                        </p>
+                                        <img src="@Url.Action("GenerateQR", new { purchaseId = purchase.PurchaseId })" 
+                                             alt="QR Code" class="img-fluid mb-2" style="max-width: 150px;" />
+                                        <br>
+                                        <a href="#" class="btn btn-sm btn-success">Download PDF Ticket</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">No upcoming events. <a asp-controller="Events" asp-action="Index">Browse events</a></p>
+            }
+        </div>
+    </div>
+
+    <!-- Section 2: Purchase History -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h3 class="mb-0">📜 Purchase History</h3>
+        </div>
+        <div class="card-body">
+            @if (Model.PurchaseHistory.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date Attended</th>
+                                <th>Total Cost</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var purchase in Model.PurchaseHistory)
+                            {
+                                @foreach (var pe in purchase.PurchaseEvents)
+                                {
+                                    <tr>
+                                        <td>@pe.Event.Title</td>
+                                        <td>@pe.Event.DateTime.ToString("MMM dd, yyyy")</td>
+                                        <td>$@pe.TotalPrice.ToString("F2")</td>
+                                        <td>
+                                            @if (purchase.Rating.HasValue)
+                                            {
+                                                <span>@string.Join("", Enumerable.Repeat("⭐", purchase.Rating.Value))</span>
+                                            }
+                                            else
+                                            {
+                                                <form asp-action="RateEvent" method="post" class="d-inline">
+                                                    <input type="hidden" name="purchaseId" value="@purchase.PurchaseId" />
+                                                    <select name="rating" class="form-select form-select-sm d-inline w-auto">
+                                                        <option value="1">⭐ 1</option>
+                                                        <option value="2">⭐ 2</option>
+                                                        <option value="3">⭐ 3</option>
+                                                        <option value="4">⭐ 4</option>
+                                                        <option value="5">⭐ 5</option>
+                                                    </select>
+                                                    <button type="submit" class="btn btn-sm btn-primary">Rate</button>
+                                                </form>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">No past events yet.</p>
+            }
+        </div>
+    </div>
+
+    <!-- Section 3: My Events (Organizers Only) -->
+    @if (User.IsInRole("Organizer") || User.IsInRole("Admin"))
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-warning">
+                <h3 class="mb-0">🎤 My Events</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="alert alert-info">
+                            <strong>Total Revenue:</strong> $@Model.TotalRevenue.ToString("F2")
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert alert-info">
+                            <strong>Total Tickets Sold:</strong> @Model.TotalTicketsSold
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model.MyEvents.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Event Title</th>
+                                    <th>Date</th>
+                                    <th>Tickets Sold</th>
+                                    <th>Available</th>
+                                    <th>Revenue</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var evt in Model.MyEvents)
+                                {
+                                    var ticketsSold = evt.PurchaseEvents.Sum(pe => pe.Quantity);
+                                    var revenue = evt.PurchaseEvents.Sum(pe => pe.TotalPrice);
+                                    
+                                    <tr>
+                                        <td>@evt.Title</td>
+                                        <td>@evt.DateTime.ToString("MMM dd, yyyy")</td>
+                                        <td>@ticketsSold</td>
+                                        <td>@evt.AvailableTickets</td>
+                                        <td>$@revenue.ToString("F2")</td>
+                                        <td>
+                                            <a asp-controller="Events" asp-action="Edit" asp-route-id="@evt.EventId" 
+                                               class="btn btn-sm btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted">You haven't created any events yet. 
+                       <a asp-controller="Events" asp-action="Create">Create your first event</a>
+                    </p>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- Section 4: Profile -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-secondary text-white">
+            <h3 class="mb-0">👤 My Profile</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="UpdateProfile" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="fullName" value="@Model.UserProfile.FullName" 
+                                   class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" value="@Model.UserProfile.Email" 
+                                   class="form-control" disabled />
+                            <small class="text-muted">Email cannot be changed</small>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phoneNumber" value="@Model.UserProfile.PhoneNumber" 
+                                   class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Profile Picture</label>
+                            <input type="file" name="profilePicture" class="form-control" accept="image/*" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </div>
+                    <div class="col-md-4">
+                        @if (!string.IsNullOrEmpty(Model.UserProfile.ProfilePicturePath))
+                        {
+                            <img src="@Model.UserProfile.ProfilePicturePath" 
+                                 alt="Profile Picture" class="img-fluid rounded-circle" />
+                        }
+                        else
+                        {
+                            <div class="text-center p-4 bg-light rounded">
+                                <i class="bi bi-person-circle" style="font-size: 5rem;"></i>
+                                <p class="text-muted mt-2">No profile picture</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

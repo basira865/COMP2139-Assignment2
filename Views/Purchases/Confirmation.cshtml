@@ -1,0 +1,141 @@
+@model COMP2139_Assignment1_1.Models.Purchase
+@{
+    ViewData["Title"] = "Purchase Confirmation";
+}
+
+<!-- ✅ Hidden data for modal trigger -->
+@if (ViewBag.ShowConfirmationModal == true)
+{
+    <div id="purchaseSuccessData"
+         data-purchase-id="@ViewBag.PurchaseId"
+         data-total-cost="@ViewBag.TotalCost"
+         style="display:none;"></div>
+}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Purchase completed successfully!
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+<h1>Thank You!</h1>
+<p class="lead">Your purchase was successful.</p>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-success text-white">
+        <h3><i class="bi bi-check-circle-fill"></i> Purchase Summary</h3>
+    </div>
+    <div class="card-body">
+        <ul>
+            <li><strong>Name:</strong> @Model.GuestName</li>
+            <li><strong>Email:</strong> @Model.GuestEmail</li>
+            <li><strong>Date:</strong> @Model.PurchaseDate.ToLocalTime().ToString("MMMM dd, yyyy hh:mm tt")</li>
+            <li><strong>Total Cost:</strong> $@Model.TotalCost.ToString("0.00")</li>
+        </ul>
+
+        <h4 class="mt-4">Events Purchased</h4>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.PurchaseEvents)
+            {
+                <tr>
+                    <td>@item.Event.Title</td>
+                    <td>@item.Event.DateTime.ToString("yyyy-MM-dd")</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.TotalPrice.ToString("0.00")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <a asp-controller="Events" asp-action="Index" class="btn btn-primary mt-3">
+            Browse More Events
+        </a>
+    </div>
+</div>
+
+<!-- ✅ PART 3.3: Confetti Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                    <i class="bi bi-check-circle-fill"></i> Purchase Successful!
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div style="font-size: 5rem; color: #28a745;">
+                    🎉
+                </div>
+                <h4 class="mt-3">Thank you for your purchase!</h4>
+                <p class="text-muted">Order #<span id="confirmationPurchaseId"></span></p>
+                <p class="lead">Total: <strong>$<span id="confirmationTotal"></span></strong></p>
+                <p>Your tickets have been confirmed!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a asp-controller="Events" asp-action="Index" class="btn btn-primary">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- ✅ Confetti.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Check if we should show the modal
+            var purchaseData = $('#purchaseSuccessData');
+
+            if (purchaseData.length > 0) {
+                // Get data
+                var purchaseId = purchaseData.data('purchase-id');
+                var totalCost = purchaseData.data('total-cost');
+
+                // Set modal values
+                $('#confirmationPurchaseId').text(purchaseId);
+                $('#confirmationTotal').text(totalCost);
+
+                // Show modal
+                var modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                modal.show();
+
+                // ✅ Trigger confetti animation
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+
+                // More confetti bursts
+                setTimeout(function() {
+                    confetti({
+                        particleCount: 50,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 }
+                    });
+                }, 250);
+
+                setTimeout(function() {
+                    confetti({
+                        particleCount: 50,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 }
+                    });
+                }, 400);
+            }
+        });
+    </script>
+}

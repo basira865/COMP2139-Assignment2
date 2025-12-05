@@ -1,0 +1,41 @@
+@model IEnumerable<COMP2139_Assignment1_1.Models.Purchase>
+
+<h2>All Purchases</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No purchases have been made yet.
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Guest</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Events</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var purchase in Model)
+        {
+            <tr>
+                <td>@purchase.GuestName</td>
+                <td>@purchase.GuestEmail</td>
+                <td>@purchase.PurchaseDate.ToString("f")</td>
+                <td>$@purchase.TotalCost</td>
+                <td>
+                    @foreach (var pe in purchase.PurchaseEvents)
+                    {
+                        <div>@pe.Event.Title (@pe.Event.DateTime.ToString("d"))</div>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Page Not Found";
+}
+
+<div class="container text-center mt-5">
+    <div class="error-page">
+        <i class="bi bi-search text-warning" style="font-size: 5rem;"></i>
+        <h1 class="display-1 fw-bold text-warning mt-3">404</h1>
+        <h2 class="mb-4">Page Not Found</h2>
+        <p class="lead">Sorry, the page you're looking for doesn't exist.</p>
+        <p class="text-muted">The link you followed may be broken or the page may have been removed.</p>
+        
+        <div class="mt-4">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                <i class="bi bi-house-door"></i> Return Home
+            </a>
+            <a asp-controller="Events" asp-action="Index" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-calendar-event"></i> Browse Events
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .error-page {
+        padding: 50px 20px;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>

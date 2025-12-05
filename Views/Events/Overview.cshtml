@@ -1,0 +1,65 @@
+@model COMP2139_Assignment1_1.Models.EventOverviewViewModel
+
+@{
+    ViewData["Title"] = "Event Overview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Event Overview</h2>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Events</h5>
+                <p class="card-text display-6">@Model.TotalEvents</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Categories</h5>
+                <p class="card-text display-6">@Model.TotalCategories</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Low Ticket Events (&lt;= 5)</h5>
+                <p class="card-text display-6">@Model.LowTicketEvents.Count</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Events with Low Ticket Availability</h3>
+@if (Model.LowTicketEvents != null && Model.LowTicketEvents.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date & Time</th>
+                <th>Category</th>
+                <th>Tickets Left</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var evt in Model.LowTicketEvents)
+            {
+                <tr>
+                    <td>@evt.Title</td>
+                    <td>@evt.DateTime.ToString("f")</td>
+                    <td>@evt.Category?.Name</td>
+                    <td>@evt.AvailableTickets</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">No events are currently low on tickets.</p>
+}

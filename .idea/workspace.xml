@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a09e9b0a-8c3e-43a0-8bd0-988fe9203286" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/COMP 2139 Assignment 1.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Controllers/HomeController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Models/ErrorViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Properties/launchSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/Home/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/Home/Privacy.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/Shared/Error.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/Shared/_Layout.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/Shared/_Layout.cshtml.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/Views/_ViewStart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/COMP 2139 Assignment 1.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/COMP 2139 Assignment 1.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/COMP 2139 Assignment 1.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.GlobalUsings.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.RazorAssemblyInfo.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.RazorAssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/Debug/net9.0/COMP 2139 Assignment 1.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/css/site.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/js/site.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/dist/jquery.slim.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/dist/jquery.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP 2139 Assignment 1/wwwroot/lib/jquery/dist/jquery.slim.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/DesignTimeDbContextFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DesignTimeDbContextFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Create.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Create.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Delete.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Delete.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Details.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Details.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Edit.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Edit.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Index.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/List.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/List.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Overview.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Events/Overview.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/_ViewStart.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Privacy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/Error.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml.css" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/_ViewImports.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/_ViewStart.cshtml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Bantolin09&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/basira865/COMP2139-Assignment1.git&quot;,
+    &quot;accountId&quot;: &quot;ca644a7e-4b95-4c87-bb02-2d9711bc2b05&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="35cIZe6M64jz3lJdNbQZyD2U8Ne" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "101522465-Clean",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/BAnto/Comp2139-Assignment1-Clean/COMP2139-Assignment1-1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a09e9b0a-8c3e-43a0-8bd0-988fe9203286" name="Changes" comment="" />
+      <created>1763402990923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763402990923</updated>
+      <workItem from="1763402992077" duration="128000" />
+      <workItem from="1763403163871" duration="567000" />
+      <workItem from="1763494812104" duration="6000" />
+      <workItem from="1763579907394" duration="2672000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

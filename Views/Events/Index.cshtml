@@ -1,0 +1,63 @@
+@model COMP2139_Assignment1_1.Models.EventListViewModel
+
+@{
+    ViewData["Title"] = "Browse Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero text-center mb-4">
+    <h2 class="display-5">Something For Everyone</h2>
+    <p class="lead">From jazz nights to tech expos, find your next experience.</p>
+</section>
+
+<h1>Events</h1>
+
+<p>
+    <a asp-controller="Events" asp-action="Create" class="btn btn-primary">Create New Event</a>
+</p>
+
+<!-- ✅ AJAX Search Inputs -->
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <input type="text"
+               id="searchInput"
+               class="form-control"
+               placeholder="Search by title..." />
+    </div>
+
+    <div class="col-md-3">
+        <select id="categoryFilter" class="form-select">
+            <option value="">All Categories</option>
+            @if (Model.CategoryList != null)
+            {
+                @foreach (var category in Model.CategoryList)
+                {
+                    <option value="@category.Value">@category.Text</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button onclick="clearSearch()" class="btn btn-outline-secondary w-100">
+            Clear
+        </button>
+    </div>
+</div>
+
+<!-- ✅ Events Container - Updated via AJAX -->
+<div id="eventsContainer">
+    @await Html.PartialAsync("_EventPartial", Model.EventList)
+</div>
+
+@Html.AntiForgeryToken()
+
+@section Scripts {
+    <script>
+        function clearSearch() {
+            $('#searchInput').val('');
+            $('#categoryFilter').val('');
+            $('#searchInput').trigger('keyup');
+        }
+    </script>
+}

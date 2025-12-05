@@ -1,0 +1,52 @@
+@model COMP2139_Assignment1_1.Models.EventListViewModel
+
+
+<h2>Upcoming Events</h2>
+
+<!--Category Filter -->
+<form method="get" class="mb-3">
+    <div class="row g-2 align-items-center">
+        <div class="col-auto">
+            <select asp-for="CategoryFilter" asp-items="Model.CategoryList" class="form-select">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-primary">Filter</button>
+        </div>
+    </div>
+</form>
+
+<!--Create button -->
+<a asp-page="/Events/Create" class="btn btn-success mb-3">Create New Event</a>
+
+<!--Event Table -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date & Time</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Tickets Available</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evt in Model.EventList)
+        {
+            <tr>
+                <td>@evt.Title</td>
+                <td>@evt.DateTime.ToString("f")</td>
+                <td>@evt.Category?.Name</td>
+                <td>$@evt.TicketPrice</td>
+                <td>@evt.AvailableTickets</td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-page="/Events/Details" asp-route-id="@evt.EventId">Details</a>
+                    <a class="btn btn-sm btn-warning" asp-page="/Events/Edit" asp-route-id="@evt.EventId">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-page="/Events/Delete" asp-route-id="@evt.EventId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

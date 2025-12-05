@@ -1,0 +1,26 @@
+@model COMP2139_Assignment1_1.Models.Event
+
+<h2>Event Details</h2>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">Title</dt>
+    <dd class="col-sm-10">@Model.Title</dd>
+
+    <dt class="col-sm-2">Date</dt>
+    <dd class="col-sm-10">@Model.DateTime.ToString("f")</dd>
+
+    <dt class="col-sm-2">Ticket Price</dt>
+    <dd class="col-sm-10">$@Model.TicketPrice</dd>
+
+    <dt class="col-sm-2">Available Tickets</dt>
+    <dd class="col-sm-10">@Model.AvailableTickets</dd>
+
+    <dt class="col-sm-2">Category</dt>
+    <dd class="col-sm-10">@Model.Category?.Name</dd>
+</dl>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.EventId" class="btn btn-outline-secondary">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-dark">Back to Events</a>
+</div>

@@ -1,0 +1,48 @@
+@model List<COMP2139_Assignment1_1.Models.Purchase>
+@{
+    ViewData["Title"] = "Purchase History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Purchase History</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">No purchases found.</div>
+}
+else
+{
+    foreach (var purchase in Model)
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-light">
+                <strong>@purchase.GuestName</strong> — @purchase.GuestEmail<br />
+                <small class="text-muted">@purchase.PurchaseDate.ToString("f")</small>
+            </div>
+            <div class="card-body">
+                <h5 class="mb-3">Total: $@purchase.TotalCost</h5>
+                <table class="table table-bordered table-sm">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in purchase.PurchaseEvents)
+                    {
+                        <tr>
+                            <td>@item.Event.Title</td>
+                            <td>@item.Event.DateTime.ToString("d")</td>
+                            <td>@item.Quantity</td>
+                            <td>$@item.TotalPrice</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+}

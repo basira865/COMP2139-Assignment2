@@ -1,0 +1,54 @@
+@model COMP2139_Assignment1_1.Models.EventListViewModel
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero text-center my-5">
+    <h2 class="display-5">Welcome to EventSphere</h2>
+    <p class="lead">Discover unforgettable experiences — from jazz nights to tech expos.</p>
+    <a class="btn btn-primary btn-lg" asp-controller="Events" asp-action="Index">Browse All Events</a>
+</section>
+
+@if (Model != null && Model.EventList != null && Model.EventList.Any())
+{
+    <div class="row">
+        @foreach (var evt in Model.EventList)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card event-card shadow-sm">
+                    <img src="@(evt.Title == "Jazz Night" 
+                                 ? "/images/jazz.webp" 
+                                 : string.IsNullOrEmpty(evt.ImageUrl) 
+                                     ? "/images/default.jpg" 
+                                     : evt.ImageUrl)"
+                         alt="@evt.Title"
+                         class="card-img-top"
+                         style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@evt.Title</h5>
+                        <p class="card-text">@evt.DateTime.DateTime.ToShortDateString()</p>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="Events" asp-action="Details" asp-route-id="@evt.EventId" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-muted">No upcoming events found.</p>
+}
+
+<style>
+    .event-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+</style>

@@ -1,0 +1,45 @@
+@model COMP2139_Assignment1_1.Models.CartItem
+@{
+    ViewData["Title"] = "Add to Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Tickets to Cart</h2>
+<hr />
+
+<div class="mb-4">
+    <dl class="row">
+        <dt class="col-sm-3">Event</dt>
+        <dd class="col-sm-9">@Model.EventTitle</dd>
+
+        <dt class="col-sm-3">Date</dt>
+        <dd class="col-sm-9">@Model.EventDateTime.ToString("f")</dd>
+
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.CategoryName</dd>
+
+        <dt class="col-sm-3">Price</dt>
+        <dd class="col-sm-9">$@Model.TicketPrice</dd>
+
+        <dt class="col-sm-3">Available Tickets</dt>
+        <dd class="col-sm-9">@Model.AvailableTickets</dd>
+    </dl>
+</div>
+
+<form asp-action="Add" method="post">
+    <input type="hidden" name="id" value="@Model.EventId" />
+
+    <div class="form-group mb-3">
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="quantity" class="form-control"
+               value="@Model.Quantity" min="1" max="@Model.AvailableTickets" required />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add to Cart</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

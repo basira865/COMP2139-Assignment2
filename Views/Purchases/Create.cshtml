@@ -1,0 +1,73 @@
+@model COMP2139_Assignment1_1.Models.CheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Checkout</h2>
+
+@if (!Model.CartItems.Any())
+{
+    <div class="alert alert-info">Your cart is empty.</div>
+}
+else
+{
+    <h4>Your Cart</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td>@item.EventTitle</td>
+                <td>@item.EventDateTime.ToString("d")</td>
+                <td>@item.Quantity</td>
+                <td>$@item.Subtotal</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <h5>Total: $@Model.TotalCost</h5>
+    <form asp-action="Confirm" method="post">
+        <button type="submit" class="btn btn-success">Confirm Purchase</button>
+    </form>
+}
+
+<hr />
+
+<h4>Add More Events</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var ev in Model.AvailableEvents)
+    {
+        <tr>
+            <td>@ev.Title</td>
+            <td>@ev.DateTime.ToString("d")</td>
+            <td>@ev.Category?.Name</td>
+            <td>$@ev.TicketPrice</td>
+            <td>@ev.AvailableTickets</td>
+            <td>
+                <a asp-controller="Cart" asp-action="Add" asp-route-id="@ev.EventId" class="btn btn-sm btn-primary">Add</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
