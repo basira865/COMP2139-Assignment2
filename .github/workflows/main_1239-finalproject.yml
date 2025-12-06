@@ -18,9 +18,9 @@ jobs:
         with:
           dotnet-version: '9.x'
       - name: Build with dotnet
-        run: dotnet build "COMP_2139_Assignment_1.sln" --configuration Release
+        run: dotnet build "COMP 2139 Assignment 1.csproj" --configuration Release
       - name: dotnet publish
-        run: dotnet publish "COMP_2139_Assignment_1.sln" -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish "COMP 2139 Assignment 1.csproj" -c Release -o ${{env.DOTNET_ROOT}}/myapp
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -50,6 +50,7 @@ jobs:
         with:
           app-name: '1239-finalproject'
           package: .
+
 
 
 
