@@ -45,10 +45,10 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DEEE0C1C1E1A4FB3B89298D243A0CAC2 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C9F340B1703D4F06A5F02569B1E05671 }}
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: '1239-finalproject'
-          slot-name: 'Production'
-          package: .
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v3
+      with:
+      app-name: '1239-finalproject'
+      package: .
+
 
